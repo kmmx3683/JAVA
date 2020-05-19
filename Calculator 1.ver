@@ -1,0 +1,57 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class Main extends JFrame{
+    JPanel panel = new JPanel();
+    JButton[] button = {new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton(), new JButton()};
+    JTextArea textArea = new JTextArea();
+
+    public Main(){
+        setSize(240, 400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        setLayout(null);
+        panel.setLayout(null);
+
+        panel.setSize(240, 400);
+
+        for(int i = 0; i < 13; i++) {
+            button[i].setSize(50, 70);
+            if(i < 9)
+                button[i].setText(Integer.toString(i + 1));
+        }
+
+        button[12].setSize(50, 295);
+
+        button[12].setText("┘");
+        button[11].setText("+");
+        button[10].setText("0");
+        button[9].setText("-");
+
+        textArea.setSize(215, 40);
+        textArea.setLocation(5, 5);
+        textArea.setText("NUMBERS HERE");
+        textArea.setEnabled(false);
+
+        int a = 0;
+
+        for(int i = 0; i < 4; i++){
+            for(int t = 0; t < 3; t++) {
+                button[a++].setLocation(5 + 55 * t, 50 + 75 * i);
+            }
+        }
+        button[12].setLocation(170, 50);
+
+        add(panel);
+        for(int i = 0; i < 13; i++)
+            panel.add(button[i]);
+        panel.add(textArea);
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        Main main = new Main();
+    }
+
+}
